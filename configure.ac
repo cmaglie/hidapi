@@ -62,9 +62,9 @@ case $host in
 	threads="pthreads"
 
 	# HIDAPI/hidraw libs
-	PKG_CHECK_MODULES([libudev], [libudev], true, [hidapi_lib_error libudev])
-	LIBS_HIDRAW_PR+=" $libudev_LIBS"
-	CFLAGS_HIDRAW+=" $libudev_CFLAGS"
+	#PKG_CHECK_MODULES([libudev], [libudev], true, [hidapi_lib_error libudev])
+	#LIBS_HIDRAW_PR+=" $libudev_LIBS"
+	#CFLAGS_HIDRAW+=" $libudev_CFLAGS"
 
 	# HIDAPI/libusb libs
 	AC_CHECK_LIB([rt], [clock_gettime], [LIBS_LIBUSB_PRIVATE+=" -lrt"], [hidapi_lib_error librt])
@@ -226,8 +226,8 @@ fi
 
 AC_SUBST(LTLDFLAGS)
 
+	#hidtest/Makefile \
 AC_CONFIG_FILES([Makefile \
-	hidtest/Makefile \
 	libusb/Makefile \
 	linux/Makefile \
 	mac/Makefile \
